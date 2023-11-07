@@ -49,6 +49,11 @@ jobs:
          docker tag springprojectt khaoularajhi/springprojectt
          docker push khaoularajhi/springprojectt
          
+      - name: Push ACR
+        run: |
+         docker tag springprojectt ecommerceapp.azurecr.io/springprojectt:latest
+         docker push ecommerceapp.azurecr.io/springprojectt:latest
+         
       - name: Start container
         run: docker-compose up -d
 
@@ -72,4 +77,4 @@ jobs:
           app-name: 'EcommerceN'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DD5C55D05DEC4A2494AC51785C604D44 }}
-          package: '*.war'
+          package: '*.jar'
