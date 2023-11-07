@@ -75,6 +75,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'EcommerceN'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DD5C55D05DEC4A2494AC51785C604D44 }}
           package: '*.jar'
