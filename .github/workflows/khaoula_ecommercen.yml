@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy WAR app to Azure Web App - EcommerceN
+name: Build and deploy JAR app to Azure Web App - EcommerceN
 
 on:
   push:
@@ -75,5 +75,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'EcommerceN'
+          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DD5C55D05DEC4A2494AC51785C604D44 }}
           package: '*.jar'
