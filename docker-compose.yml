@@ -26,6 +26,3 @@ services:
       - 4200:4200 #Forwars the exposed port 4200 on the container to port 4200 on the host machine
     links: 
       - springprojectt-app
-
-volumes:
-  db:
