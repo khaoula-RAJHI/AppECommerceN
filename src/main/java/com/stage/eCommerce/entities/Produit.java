@@ -45,6 +45,10 @@ public class Produit implements Serializable {
 	@JsonIgnore
 	private User user;
 
+	@ManyToOne
+	@JsonIgnore
+	private Commande commande;
+
 
 
 	/*

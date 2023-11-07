@@ -102,4 +102,8 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     private Set<Produit> prods;
+
+    @OneToMany(mappedBy = "users")
+    @JsonIgnore
+    private Set<Commande> cmd;
 }
