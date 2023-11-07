@@ -4,11 +4,11 @@ services:
   mydb:
     image: mydb:latest
     environment:
-      - MYSQL_HOST: db-stage-db.mysql.database.azure.com
-      - MYSQL_USER: KhaoulaRajhi
-      - MYSQL_PASSWORD: 203JFT1612db
-      - MYSQL_DB: stage
-      - MYSQL_PORT: 3306
+      - MYSQL_HOST=db-stage-db.mysql.database.azure.com
+      - MYSQL_USER=KhaoulaRajhi
+      - MYSQL_PASSWORD=203JFT1612db
+      - MYSQL_DB=stage
+      - MYSQL_PORT=3306
     ports:
       - "8080:8080"
   db:
