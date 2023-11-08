@@ -14,6 +14,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Trigger Azure DevOps pipeline
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"definition": {"id": 20231108.8}}' \
+          -u khawlarajhi:gk3esjygky3dygrz6j3w5chb52k5eoavorsf6z6pok2ufacgbaoa https://dev.azure.com/khawlarajhi/_apis/pipelines/EcommerceProjectN/runs?api-version=7.1
+      
       - uses: actions/checkout@v4
 
       - name: Set up Java version
