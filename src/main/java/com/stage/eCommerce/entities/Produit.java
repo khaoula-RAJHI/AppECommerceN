@@ -2,15 +2,10 @@ package com.stage.eCommerce.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,16 +34,28 @@ public class Produit implements Serializable {
 
 	@ManyToOne
 	@JsonIgnore
+	@JoinColumn(name = "categorieProduit")
 	private CategorieProduit categorieProduit;
-
+/*
 	@ManyToOne
 	@JsonIgnore
+	@JoinColumn(name = "user")
 	private User user;
+*/
 
+
+<<<<<<< Updated upstream
 	@ManyToOne
 	@JsonIgnore
 	private Commande commande;
 
+=======
+	/*
+	@OneToMany(mappedBy = "product")
+	@JsonIgnore
+	private Set<Commande> commande;
+*/
+>>>>>>> Stashed changes
 
 
 	/*

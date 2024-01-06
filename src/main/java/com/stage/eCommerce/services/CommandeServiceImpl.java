@@ -32,18 +32,54 @@ public class CommandeServiceImpl implements ICommandeService {
         return commandes;
     }
 
+<<<<<<< Updated upstream
+=======
+    public Commande retrieveCommande(Long commandeId){
+        Commande commande = commandeRepository.findById(commandeId).orElse(null);
+        log.info("commande :" + commande);
+        return commande;
+
+    }
+    @Override
+    public Commande saveCommande(Commande commande) {
+        return commandeRepository.save(commande);
+    }
+    @Override
+    public double calculerMontantCommande(Commande commande) {
+        double montant = 0.0;
+
+        // Itérer sur les produits associés à la commande et accumuler le prix
+        for (Produit produit : commande.getProduct()) {
+            montant += produit.getPrix();
+        }
+
+        // Multipliez par la quantité pour obtenir le montant total
+        montant *= commande.getQuantite();
+
+        return montant;
+    }
+/*
+>>>>>>> Stashed changes
     @Override
     public Commande addCommande(Commande c) {
         double montant = calculateMontant(c);
         c.setMontant(montant);
         return commandeRepository.save(c);
     }
+<<<<<<< Updated upstream
 
+=======
+*/
+>>>>>>> Stashed changes
     @Override
     public void deleteCommande(Long id) {
         commandeRepository.deleteById(id);
     }
+<<<<<<< Updated upstream
 
+=======
+/*
+>>>>>>> Stashed changes
     @Override
     public Commande updateCommande(Commande c) {
         if (commandeRepository.existsById(c.getIdCommande())) {
@@ -73,6 +109,7 @@ public class CommandeServiceImpl implements ICommandeService {
 
         return totalMontant;
     }
+<<<<<<< Updated upstream
     }
 /*
     @Override
@@ -87,4 +124,11 @@ public class CommandeServiceImpl implements ICommandeService {
         commande.setMontant(total);
         return commande;
     }*/
+=======
+
+
+ */
+    }
+
+>>>>>>> Stashed changes
 

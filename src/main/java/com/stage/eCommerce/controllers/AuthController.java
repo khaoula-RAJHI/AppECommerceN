@@ -93,9 +93,9 @@ public class AuthController {
 
 		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
-
+/*
 		if (strRoles == null) {
-			Role userRole = roleRepository.findByName(ERole.CLIENT)
+			Role userRole = roleRepository.findByName(ERole.ADMIN)
 					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 			roles.add(userRole);
 		} else {
@@ -115,7 +115,19 @@ public class AuthController {
 				}
 			});
 		}
-
+*/
+		// Vérifier si la base de données est vide
+		if (userRepository.count() == 0) {
+			// Le compte est le premier dans la base de données, attribuez le rôle ADMIN
+			Role adminRole = roleRepository.findByName(ERole.ADMIN)
+					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+			roles.add(adminRole);
+		} else {
+			// La base de données n'est pas vide, attribuez le rôle CLIENT
+			Role userRole = roleRepository.findByName(ERole.CLIENT)
+					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+			roles.add(userRole);
+		}
 		user.setRoles(roles);
 		userRepository.save(user);
 

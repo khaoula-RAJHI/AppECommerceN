@@ -98,11 +98,15 @@ public class User implements Serializable {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
+/*
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     private Set<Produit> prods;
+<<<<<<< Updated upstream
 
+=======
+*/
+>>>>>>> Stashed changes
     @OneToMany(mappedBy = "users")
     @JsonIgnore
     private Set<Commande> cmd;

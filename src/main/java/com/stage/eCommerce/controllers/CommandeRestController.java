@@ -25,12 +25,31 @@ public class CommandeRestController {
         return list;
     }
 
+<<<<<<< Updated upstream
+=======
+    @PostMapping("/commandes")
+    public void saveCommande(@RequestBody Commande commande) {
+        commandeService.saveCommande(commande);
+    }
+
+    @GetMapping("/commandes/{commandeId}/montant")
+    public double calculerMontantCommande(@PathVariable Long commandeId) {
+        Commande commande = commandeService.retrieveCommande(commandeId);
+        return commandeService.calculerMontantCommande(commande);
+    }
+
+    /*
+>>>>>>> Stashed changes
     @PostMapping("/add-commande")
     @ResponseBody
     public Commande addCommande(@RequestBody Commande c) {
         Commande commande = commandeService.addCommande(c);
         return commande;
     }
+<<<<<<< Updated upstream
+=======
+    */
+>>>>>>> Stashed changes
 
     @DeleteMapping("/remove-commande/{commande-id}")
     @ResponseBody
@@ -38,7 +57,11 @@ public class CommandeRestController {
         commandeService.deleteCommande(CommandeId);
     }
 
+<<<<<<< Updated upstream
 
+=======
+/*
+>>>>>>> Stashed changes
     @PutMapping("/modify-commande")
     @ResponseBody
     public Commande modifyCommande(@RequestBody Commande c) {
@@ -50,5 +73,9 @@ public class CommandeRestController {
     public double calculateMontant(@RequestBody Commande c) {
         return commandeService.calculateMontant(c);
     }
+<<<<<<< Updated upstream
 
+=======
+*/
+>>>>>>> Stashed changes
 }
