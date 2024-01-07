@@ -4,6 +4,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import com.stage.eCommerce.entities.CategorieProduit;
+import com.stage.eCommerce.entities.Role;
 import com.stage.eCommerce.repositories.CategorieProduitRepository;
 import com.stage.eCommerce.repositories.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,11 @@ public class ProduitServiceImpl implements IProduitService {
 	public List<Produit> getproduitparCategorie(Long idCategorieProduit) {
 		List<Produit> produitParCat=(List<Produit>) produitRepository.getproduitparCategorie(idCategorieProduit);
 		return produitParCat ;
+	}
+
+	@Override
+		public List<CategorieProduit> displayCategories() {
+		return categorieProduitRepository.findAll();
 	}
 
 

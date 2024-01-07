@@ -102,11 +102,7 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     private Set<Produit> prods;
-<<<<<<< Updated upstream
-
-=======
 */
->>>>>>> Stashed changes
     @OneToMany(mappedBy = "users")
     @JsonIgnore
     private Set<Commande> cmd;

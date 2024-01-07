@@ -3,6 +3,7 @@ package com.stage.eCommerce.controllers;
 import java.util.List;
 
 import com.stage.eCommerce.entities.CategorieProduit;
+import com.stage.eCommerce.entities.Role;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -73,6 +74,14 @@ public class ProduitRestController {
 	@ResponseBody
 	public List<Produit> getproduitparCategorie(@PathVariable("idCategorieProduit") Long idCategorieProduit){
 		return produitService.getproduitparCategorie(idCategorieProduit);
+	}
+
+
+	@GetMapping("/displayCategories")
+	@ResponseBody
+	public  List<CategorieProduit> displayCategories() {
+		List<CategorieProduit> list = produitService.displayCategories();
+		return list;
 	}
 
 

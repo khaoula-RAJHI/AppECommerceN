@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.stage.eCommerce.entities.CategorieProduit;
 import com.stage.eCommerce.entities.Produit;
+import com.stage.eCommerce.entities.Role;
 
 public interface IProduitService {
 
@@ -20,4 +21,5 @@ public interface IProduitService {
 	Produit addAndAssignProduitToCategorie(Produit p, Long idCategorieProduit);
 
 	List<Produit> getproduitparCategorie(Long idCategorieProduit);
+	List<CategorieProduit> displayCategories();
 }

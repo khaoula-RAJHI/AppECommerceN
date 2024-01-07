@@ -44,18 +44,11 @@ public class Produit implements Serializable {
 */
 
 
-<<<<<<< Updated upstream
-	@ManyToOne
-	@JsonIgnore
-	private Commande commande;
-
-=======
 	/*
 	@OneToMany(mappedBy = "product")
 	@JsonIgnore
 	private Set<Commande> commande;
 */
->>>>>>> Stashed changes
 
 
 	/*

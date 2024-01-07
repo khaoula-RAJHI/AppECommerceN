@@ -3,6 +3,7 @@ package com.stage.eCommerce.services;
 
 import com.stage.eCommerce.entities.Commande;
 import com.stage.eCommerce.entities.Produit;
+import com.stage.eCommerce.entities.Role;
 import com.stage.eCommerce.entities.User;
 import com.stage.eCommerce.repositories.CommandeRepository;
 import com.stage.eCommerce.repositories.ProduitRepository;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -27,13 +29,11 @@ public class CommandeServiceImpl implements ICommandeService {
     public List<Commande> retrieveAllCommandes() {
         List<Commande> commandes = (List<Commande>) commandeRepository.findAll();
         for (Commande commande : commandes) {
-            log.info(" Commande : " + commandes);
+            log.info(" Commande : " + commande);
         }
         return commandes;
     }
 
-<<<<<<< Updated upstream
-=======
     public Commande retrieveCommande(Long commandeId){
         Commande commande = commandeRepository.findById(commandeId).orElse(null);
         log.info("commande :" + commande);
@@ -58,77 +58,41 @@ public class CommandeServiceImpl implements ICommandeService {
 
         return montant;
     }
+
+    @Override
+    public List<Produit> displayProducts() {
+        return produitRepository.findAll();
+    }
+    @Override
+    public List<User> displayUsers() {
+        return userRepository.findAll();
+    }
 /*
->>>>>>> Stashed changes
     @Override
     public Commande addCommande(Commande c) {
         double montant = calculateMontant(c);
         c.setMontant(montant);
         return commandeRepository.save(c);
     }
-<<<<<<< Updated upstream
-
-=======
 */
->>>>>>> Stashed changes
     @Override
     public void deleteCommande(Long id) {
         commandeRepository.deleteById(id);
     }
-<<<<<<< Updated upstream
 
-=======
-/*
->>>>>>> Stashed changes
-    @Override
-    public Commande updateCommande(Commande c) {
-        if (commandeRepository.existsById(c.getIdCommande())) {
-            double montant = calculateMontant(c);
-            c.setMontant(montant);
-            return commandeRepository.save(c);
-        } else {
-            // Gérer le cas où la commande n'existe pas, peut-être lancer une exception, etc.
-            return null;
+
+    public Commande addcmd(Commande c, Long productId) {
+        Optional<Produit> produitOptional = produitRepository.findById(productId);
+
+        if (produitOptional.isPresent()) {
+            Produit produit = produitOptional.get();
+            c.getProduct().clear();
+            c.getProduct().add(produit);
+            commandeRepository.save(c);
+            return c;
         }
+        return c;
+    }
     }
 
-    @Override
-    public double calculateMontant(Commande c) {
-        // Implémentez la logique pour calculer le montant en fonction des attributs de la commande, de l'utilisateur et des produits
-        User user = c.getUsers();
-        List<Produit> produits = produitRepository.findByCommandeId(c.getIdCommande());
-
-        double totalMontant = 0.0;
-
-        // Logique de calcul du montant en fonction des produits
-        for (Produit produit : produits) {
-            totalMontant += produit.getPrix();
-        }
-
-        // Ajoutez d'autres calculs basés sur l'utilisateur, par exemple des réductions, des taxes, etc.
-
-        return totalMontant;
-    }
-<<<<<<< Updated upstream
-    }
-/*
-    @Override
-    public Commande calculerTotal(Commande commande) {
-        Set<Produit> products = commande.getProducts();
-        double total = 0;
-
-        for (Produit product : products) {
-            total += product.getPrix() * product.getQuantite();
-        }
-
-        commande.setMontant(total);
-        return commande;
-    }*/
-=======
-
-
- */
-    }
-
->>>>>>> Stashed changes
 

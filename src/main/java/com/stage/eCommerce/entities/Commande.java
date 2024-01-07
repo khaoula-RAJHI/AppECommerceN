@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
-<<<<<<< Updated upstream
-=======
 import java.util.HashSet;
->>>>>>> Stashed changes
 import java.util.Set;
 
 import javax.persistence.*;
@@ -30,21 +27,6 @@ public class Commande {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCommande;
 
-<<<<<<< Updated upstream
-    private String nomClient;
-    @Temporal(TemporalType.DATE)
-    private Date dateCommande;
-    private double montant;
-
-    @ManyToOne
-    @JsonIgnore
-    private User users;
-
-    @OneToMany(mappedBy = "commande")
-    @JsonIgnore
-    private Set<Produit> products;
-
-=======
     private int quantite;
 
     @ManyToOne
@@ -63,7 +45,6 @@ public class Commande {
             joinColumns = @JoinColumn(name = "commande_id"),
             inverseJoinColumns = @JoinColumn(name = "produit_id"))
     private Set<Produit> product = new HashSet<>();
->>>>>>> Stashed changes
 
 }
 

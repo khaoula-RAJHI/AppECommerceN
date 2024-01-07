@@ -37,19 +37,13 @@ public class UserRestController {
         userService.deleteUser(userId);
     }
 
-<<<<<<< Updated upstream
-    @GetMapping("/displayRoles")
-=======
     @GetMapping("/displayUsersRoles")
->>>>>>> Stashed changes
     @ResponseBody
     public  List<User> displayUsersWithRoles() {
         List<User> list = userService.displayUsersWithRoles();
         return list;
     }
 
-<<<<<<< Updated upstream
-=======
     @GetMapping("/displayRoles")
     @ResponseBody
     public  List<Role> displayRoles() {
@@ -57,7 +51,6 @@ public class UserRestController {
         return list;
     }
 
->>>>>>> Stashed changes
     @PutMapping("/{userId}/roles/{roleId}")
     public ResponseEntity<String> updateUserRole(@PathVariable Long userId, @PathVariable Long roleId) {
         if (userService.updateUserRole(userId, roleId)) {

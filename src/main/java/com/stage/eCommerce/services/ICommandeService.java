@@ -1,36 +1,29 @@
 package com.stage.eCommerce.services;
 
 import com.stage.eCommerce.entities.Commande;
-<<<<<<< Updated upstream
 import com.stage.eCommerce.entities.Produit;
+import com.stage.eCommerce.entities.User;
 
-=======
->>>>>>> Stashed changes
 import java.util.List;
 
 public interface ICommandeService {
 
     List<Commande> retrieveAllCommandes();
 
-<<<<<<< Updated upstream
-    Commande addCommande(Commande c);
-
-    void deleteCommande(Long id);
-
-    Commande updateCommande(Commande c);
-
-    double calculateMontant(Commande c);
-=======
     Commande saveCommande(Commande commande);
 
     Commande retrieveCommande(Long id);
 
     double calculerMontantCommande(Commande commande);
 
+    List<Produit> displayProducts();
+    List<User> displayUsers();
+
     void deleteCommande(Long id);
 
+    Commande addcmd(Commande c, Long productId);
 
 
 
->>>>>>> Stashed changes
+
 }

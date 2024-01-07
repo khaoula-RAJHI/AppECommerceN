@@ -18,13 +18,8 @@ public interface ProduitRepository extends JpaRepository<Produit, Long> {
     List<Produit> getproduitparCategorie(@Param("idCategorieProduit") Long idCategorieProduit);
 
     //afficher PRODUITS By COMMANDE
-<<<<<<< Updated upstream
-    @Query("SELECT p from Produit p where p.commande.idCommande=:idCommande")
-    List<Produit> findByCommandeId(@Param("idCommande") Long idCommande);
-=======
     //@Query("SELECT p from Produit p where p.commande.idCommande=:idCommande")
     //List<Produit> findByCommandeId(@Param("idCommande") Long idCommande);
->>>>>>> Stashed changes
 
 
 	

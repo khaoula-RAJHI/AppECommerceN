@@ -45,13 +45,10 @@ public class UserServiceImpl implements IUserService {
         return users;
     }
 
-<<<<<<< Updated upstream
-=======
     @Override
     public List<Role> displayRoles() {
         return roleRepository.findAll();
     }
->>>>>>> Stashed changes
     /*
     public void updateUserRole(Long userId, Long roleId) {
 
