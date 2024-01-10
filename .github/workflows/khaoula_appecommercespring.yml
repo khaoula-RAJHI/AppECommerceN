@@ -34,7 +34,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           username: khaoularajhi
-          password: khaoula07494213
+          password: ${{ secrets.AZUREAPPSERVICE_DOCKER }}
     
       - name: Login to Azure Container Registry
         uses: docker/login-action@v1
