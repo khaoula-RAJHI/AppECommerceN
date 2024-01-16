@@ -33,7 +33,7 @@ import com.stage.eCommerce.security.jwt.JwtUtils;
 import com.stage.eCommerce.security.services.UserDetailsImpl;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin("*")
 @RequestMapping("/authentification")
 public class AuthController {
 	@Autowired
